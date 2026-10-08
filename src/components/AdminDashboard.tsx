@@ -388,7 +388,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                 ))}
               </div>
               <p className="text-[11px] text-[#F5EFE3]/60 mt-1.5">
-                Default: 10 foto per tamu untuk menciptakan sensasi disposable camera roll asli.
+                Default: 5 foto per tamu untuk menciptakan sensasi disposable camera roll asli.
               </p>
             </div>
 

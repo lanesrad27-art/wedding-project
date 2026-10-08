@@ -34,7 +34,7 @@ export const WeddingGallery: React.FC<WeddingGalleryProps> = ({
       <div className="text-center max-w-2xl mx-auto space-y-3 mb-8">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#5B1B31]/30 border border-[#808000]/40 text-xs text-[#C8A96B] font-medium tracking-widest uppercase">
           <Sparkles className="w-3.5 h-3.5 text-[#C8A96B]" />
-          <span>Faishal &amp; Faza · 11 • 10 • 2026</span>
+          <span>Faishal &amp; Faza · 10 • 10 • 2026</span>
         </div>
 
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif-title font-bold tracking-wide text-[#FFF9F0]">

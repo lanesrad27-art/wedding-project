@@ -76,7 +76,7 @@ export const QRCodeModal: React.FC<QRCodeModalProps> = ({ isOpen, onClose }) => 
             FAISHAL &amp; FAZA
           </h4>
           <p className="text-[9px] tracking-widest uppercase text-stone-500 font-semibold mb-3">
-            11 • 10 • 2026   ·   ROMANTIC GARDEN
+            10 • 10 • 2026   ·   ROMANTIC GARDEN
           </p>
 
           {/* QR Code */}

@@ -324,7 +324,7 @@ export const CameraView: React.FC<CameraViewProps> = ({
               FAISHAL &amp; FAZA
             </span>
             <div className="flex items-center gap-1.5 text-[10px] tracking-widest uppercase text-[#C8A96B] font-medium">
-              <span>11 • 10 • 2026</span>
+              <span>10 • 10 • 2026</span>
               <span>·</span>
               <span className="text-[#808000]">ROMANTIC GARDEN</span>
             </div>
@@ -505,7 +505,7 @@ export const CameraView: React.FC<CameraViewProps> = ({
                   FAISHAL &amp; FAZA
                 </p>
                 <p className="text-[9px] font-sans tracking-[0.2em] text-[#C8A96B] uppercase font-medium">
-                  11 • 10 • 2026   ·   ROMANTIC GARDEN
+                  10 • 10 • 2026   ·   ROMANTIC GARDEN
                 </p>
               </div>
             </div>

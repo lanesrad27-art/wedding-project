@@ -64,13 +64,13 @@ export interface EventConfig {
 export const WEDDING_EVENT_CONFIG: EventConfig = {
   id: 'faishal-faza-2026',
   couple_name: 'Faishal & Faza',
-  wedding_date: '11 • 10 • 2026',
+  wedding_date: '10 • 10 • 2026',
   theme: 'Romantic Garden Wedding',
   primary_color: '#5B1B31',
   secondary_color: '#808000',
-  photo_limit: 10,
+  photo_limit: 5,
   reveal_mode: 'instant',
-  created_at: '2026-10-11T00:00:00Z',
+  created_at: '2026-10-10T00:00:00Z',
 };
 
 export const FILTERS_CONFIG: Record<FilterType, FilterDefinition> = {

@@ -316,13 +316,13 @@ function applyWeddingFilmStamp(
   ctx.letterSpacing = '2px';
   ctx.fillText('FAISHAL & FAZA', width / 2, bottomY - 26);
 
-  // Subtitle Line: 11 • 10 • 2026 • ROMANTIC GARDEN • [FILTER]
+  // Subtitle Line: 10 • 10 • 2026 • ROMANTIC GARDEN • [FILTER]
   ctx.fillStyle = '#C8A96B'; // Muted Gold
   const dateFontSize = Math.max(12, Math.round(width * 0.016));
   ctx.font = `500 ${dateFontSize}px 'Plus Jakarta Sans', sans-serif`;
   ctx.letterSpacing = '3px';
   const filterLabel = filter === 'GARDEN_FLASH' ? 'GARDEN FILM' : filter;
-  ctx.fillText(`11 • 10 • 2026   ·   ROMANTIC GARDEN   ·   ${filterLabel}`, width / 2, bottomY);
+  ctx.fillText(`10 • 10 • 2026   ·   ROMANTIC GARDEN   ·   ${filterLabel}`, width / 2, bottomY);
 
   // Top discreet disposable roll marker: e.g. "EXP 24 / ISO 800"
   ctx.fillStyle = 'rgba(245, 239, 227, 0.45)';

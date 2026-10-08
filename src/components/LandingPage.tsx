@@ -59,7 +59,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           </h1>
 
           <div className="flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-[#F5EFE3]/90 font-medium">
-            <span>11</span>
+            <span>10</span>
             <span className="text-[#808000]">●</span>
             <span>10</span>
             <span className="text-[#808000]">●</span>
