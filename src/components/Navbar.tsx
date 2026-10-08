@@ -8,6 +8,7 @@ interface NavbarProps {
   onOpenQR: () => void;
   onOpenRoll: () => void;
   photoCount?: number;
+  showAdmin?: boolean;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -17,6 +18,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenQR,
   onOpenRoll,
   photoCount = 0,
+  showAdmin = false,
 }) => {
   return (
     <header className="sticky top-0 z-40 w-full bg-[#151210]/85 backdrop-blur-md border-b border-[#5B1B31]/30 text-[#F5EFE3] transition-colors">
@@ -30,7 +32,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             FAISHAL & FAZA
           </span>
           <span className="hidden sm:inline text-[10px] tracking-widest uppercase text-[#808000] font-medium">
-            11•10•2026
+            10•10•2026
           </span>
         </button>
 
@@ -86,18 +88,20 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Zone 3: 1-2 primary actions */}
         <div className="flex items-center gap-2">
-          <button
-            onClick={() => onNavigate('admin')}
-            className={`p-2 rounded-lg text-xs font-medium transition-colors cursor-pointer flex items-center gap-1.5 ${
-              currentView === 'admin'
-                ? 'bg-[#5B1B31] text-[#FFF9F0]'
-                : 'text-[#F5EFE3]/60 hover:text-[#FFF9F0] hover:bg-[#5B1B31]/20'
-            }`}
-            title="Admin Console"
-          >
-            <Shield className="w-4 h-4 text-[#808000]" />
-            <span className="hidden md:inline">Admin</span>
-          </button>
+          {showAdmin && (
+            <button
+              onClick={() => onNavigate('admin')}
+              className={`p-2 rounded-lg text-xs font-medium transition-colors cursor-pointer flex items-center gap-1.5 ${
+                currentView === 'admin'
+                  ? 'bg-[#5B1B31] text-[#FFF9F0]'
+                  : 'text-[#F5EFE3]/60 hover:text-[#FFF9F0] hover:bg-[#5B1B31]/20'
+              }`}
+              title="Admin Console"
+            >
+              <Shield className="w-4 h-4 text-[#808000]" />
+              <span className="hidden md:inline">Admin</span>
+            </button>
+          )}
         </div>
       </div>
     </header>

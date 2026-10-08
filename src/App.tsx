@@ -1,6 +1,6 @@
 /**
  * Faishal & Faza Digital Disposable Wedding Camera
- * 11 Oktober 2026 • Romantic Garden Wedding
+ * 10 Oktober 2026 • Romantic Garden Wedding
  */
 
 import React, { useEffect, useState, useMemo } from 'react';
@@ -14,6 +14,7 @@ import { CameraRollModal } from './components/CameraRollModal';
 import { WeddingGallery } from './components/WeddingGallery';
 import { QRCodeModal } from './components/QRCodeModal';
 import { AdminDashboard } from './components/AdminDashboard';
+import { AdminPinModal } from './components/AdminPinModal';
 
 import {
   CameraRatio,
@@ -32,7 +33,6 @@ import {
   getEventConfig,
   saveCapturedPhoto,
   saveGuest,
-  seedInitialDemoPhotosIfNeeded,
   updateEventConfig,
 } from './lib/supabase';
 import { CapturedImageResult } from './lib/imageProcessing';
@@ -61,6 +61,37 @@ export default function App() {
   const [photos, setPhotos] = useState<PhotoRecord[]>([]);
   const [guests, setGuests] = useState<GuestRecord[]>([]);
 
+  // Admin access (PIN)
+  const [isAdminUnlocked, setIsAdminUnlocked] = useState<boolean>(() => {
+    try {
+      return sessionStorage.getItem('wedding_admin_unlocked') === '1';
+    } catch {
+      return false;
+    }
+  });
+  const [isPinModalOpen, setIsPinModalOpen] = useState<boolean>(false);
+  // Tombol Admin hanya muncul jika link dibuka dengan #admin (atau admin sudah login)
+  const [adminLinkOpened] = useState<boolean>(() => window.location.hash === '#admin');
+
+  const handleNavigate = (view: 'landing' | 'camera' | 'gallery' | 'admin') => {
+    if (view === 'admin' && !isAdminUnlocked) {
+      setIsPinModalOpen(true);
+      return;
+    }
+    setCurrentView(view);
+  };
+
+  const handleAdminUnlocked = () => {
+    try {
+      sessionStorage.setItem('wedding_admin_unlocked', '1');
+    } catch {
+      // abaikan jika penyimpanan sesi tidak tersedia
+    }
+    setIsAdminUnlocked(true);
+    setIsPinModalOpen(false);
+    setCurrentView('admin');
+  };
+
   // Modals
   const [isGuestModalOpen, setIsGuestModalOpen] = useState<boolean>(false);
   const [isQRModalOpen, setIsQRModalOpen] = useState<boolean>(false);
@@ -75,13 +106,11 @@ export default function App() {
   // Load Initial Data
   useEffect(() => {
     const initializeData = async () => {
-      // 1. Seed demo photos if empty
-
-      // 2. Load event configuration
+      // 1. Load event configuration
       const cfg = await getEventConfig();
       setEventConfig(cfg);
 
-      // 3. Load photos and guests
+      // 2. Load photos and guests
       const fetchedPhotos = await fetchWeddingPhotos();
       setPhotos(fetchedPhotos);
 
@@ -210,7 +239,8 @@ export default function App() {
       {/* Main Navigation Bar */}
       <Navbar
         currentView={currentView}
-        onNavigate={(view) => setCurrentView(view)}
+        onNavigate={handleNavigate}
+        showAdmin={adminLinkOpened || isAdminUnlocked}
         guestName={guestName}
         onOpenQR={() => setIsQRModalOpen(true)}
         onOpenRoll={() => setIsRollModalOpen(true)}
@@ -247,7 +277,7 @@ export default function App() {
           />
         )}
 
-        {currentView === 'admin' && (
+        {currentView === 'admin' && isAdminUnlocked && (
           <AdminDashboard
             eventConfig={eventConfig}
             photos={photos}
@@ -260,6 +290,13 @@ export default function App() {
           />
         )}
       </main>
+
+      {/* Admin PIN Modal */}
+      <AdminPinModal
+        isOpen={isPinModalOpen}
+        onClose={() => setIsPinModalOpen(false)}
+        onSuccess={handleAdminUnlocked}
+      />
 
       {/* Guest Name Modal */}
       <GuestNameModal

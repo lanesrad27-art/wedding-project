@@ -318,7 +318,7 @@ export const CameraView: React.FC<CameraViewProps> = ({
             <ChevronLeft className="w-5 h-5" />
           </button>
 
-          {/* Center Title: Faishal & Faza 11•10•2026 */}
+          {/* Center Title: Faishal & Faza 10•10•2026 */}
           <div className="flex flex-col items-center">
             <span className="font-serif-title text-base sm:text-lg font-bold tracking-wider text-[#FFF9F0]">
               FAISHAL &amp; FAZA
@@ -499,7 +499,7 @@ export const CameraView: React.FC<CameraViewProps> = ({
                 <div className="w-1 h-1 bg-white rounded-full" />
               </div>
 
-              {/* Bottom Film Frame Stamp (Section 15: FAISHAL & FAZA • 11•10•2026 • ROMANTIC GARDEN) */}
+              {/* Bottom Film Frame Stamp (Section 15: FAISHAL & FAZA • 10•10•2026 • ROMANTIC GARDEN) */}
               <div className="flex flex-col items-center text-center bg-black/45 backdrop-blur-sm py-1.5 px-3 rounded-lg border border-white/10">
                 <p className="font-serif-title font-bold text-xs tracking-wider text-[#FFF9F0]">
                   FAISHAL &amp; FAZA

@@ -90,7 +90,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             Faishal &amp; Faza's Wedding Dashboard
           </h2>
           <p className="text-xs text-[#C8A96B] font-medium mt-0.5">
-            11 Oktober 2026   ·   Romantic Garden Wedding
+            10 Oktober 2026   ·   Romantic Garden Wedding
           </p>
         </div>
 
