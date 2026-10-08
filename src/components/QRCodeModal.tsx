@@ -7,13 +7,19 @@ interface QRCodeModalProps {
   onClose: () => void;
 }
 
+const PUBLIC_URL = (
+  (import.meta.env.VITE_PUBLIC_URL as string | undefined)?.trim() ||
+  'https://wedding-fotoalbum.netlify.app'
+).replace(/\/+$/, '');
+
 export const QRCodeModal: React.FC<QRCodeModalProps> = ({ isOpen, onClose }) => {
   const [qrDataUrl, setQrDataUrl] = useState<string>('');
   const [copied, setCopied] = useState<boolean>(false);
 
-  const eventUrl = typeof window !== 'undefined'
-    ? `${window.location.origin}/event/faishal-faza`
-    : 'https://wedding.camera/event/faishal-faza';
+  // QR selalu mengarah ke halaman utama situs produksi (tanpa path tambahan),
+  // sehingga tetap benar walau admin membuka dari localhost atau link preview.
+  // Jika nanti memakai domain sendiri, isi VITE_PUBLIC_URL di pengaturan hosting.
+  const eventUrl = PUBLIC_URL;
 
   useEffect(() => {
     if (isOpen) {
