@@ -1,6 +1,6 @@
 {
   "name": "Faishal & Faza Wedding Camera",
-  "description": "Digital disposable wedding camera and private guestbook album for Faishal & Faza's Romantic Garden Wedding on 11 October 2026.",
+  "description": "Digital disposable wedding camera and private guestbook album for Faishal & Faza's Romantic Garden Wedding on 10 October 2026.",
   "requestFramePermissions": ["camera"],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
