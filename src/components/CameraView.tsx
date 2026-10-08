@@ -477,9 +477,7 @@ export const CameraView: React.FC<CameraViewProps> = ({
               playsInline
               autoPlay
               muted
-              className={`w-full h-full object-cover transition-transform duration-200 ${
-                facingMode === 'user' ? 'scale-x-[-1]' : ''
-              }`}
+              className="w-full h-full object-cover transition-transform duration-200"
               style={{
                 filter: currentFilterConfig.cssFilter,
                 transform: `${facingMode === 'user' ? 'scaleX(-1)' : ''} scale(${zoom})`,
