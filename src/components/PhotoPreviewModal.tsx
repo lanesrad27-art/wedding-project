@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Camera, Check, Download, Heart, RefreshCw, Share2, Sparkles, X } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { CapturedImageResult } from '../lib/imageProcessing';
@@ -25,6 +25,13 @@ export const PhotoPreviewModal: React.FC<PhotoPreviewModalProps> = ({
 }) => {
   const [isSaving, setIsSaving] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
+
+  // Setiap foto baru (atau modal dibuka lagi) harus mulai dari keadaan "belum disimpan".
+  // Tanpa ini, status "Saved" dari foto sebelumnya terbawa dan foto berikutnya tidak pernah disimpan.
+  useEffect(() => {
+    setIsSaved(false);
+    setIsSaving(false);
+  }, [isOpen, captureResult]);
 
   if (!isOpen || !captureResult) return null;
 
